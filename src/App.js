@@ -10,7 +10,6 @@ function getNav() {
 }
 
 function App() {
-  
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -19,19 +18,17 @@ function App() {
   
   return (
     <BrowserRouter>
-      <div>
-        <Header/>
-          {data === null 
-          ? <Loading/>
-          : <div className='navigation'>
-            <UnorderedList
-              pages={data.entities.pages}
-              anchors={data.entities.anchors}
-              topLevel={data.topLevelIds}
-              type={'topLevel'}
-            />
-            </div>}
-      </div>
+      <Header/>
+        {data === null 
+        ? <Loading/>
+        : <div className='navigation'>
+          <UnorderedList
+            pages={data.entities.pages}
+            anchors={data.entities.anchors}
+            topLevel={data.topLevelIds}
+            type={'topLevel'}
+          />
+          </div>}
     </BrowserRouter>
   );
 }
